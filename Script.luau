@@ -21,7 +21,7 @@ local Window = Rayfield:CreateWindow({
    Discord = {
       Enabled = true, -- Prompt the user to join your Discord server if their executor supports it
       Invite = "eT8JJfAKdt", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
-      RememberJoins = false -- Set this to false to make them join the discord every time they load it up
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
 })
 
@@ -47,6 +47,19 @@ local Button2 = Tab:CreateButton({
    Name = "SimpleSpy v3",
    Callback = function()
   loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpyBeta.lua"))()
+   end,
+})
+
+local Button1 = Tab:CreateButton({
+   Name = "Decompiler v1.0.3 [BETA]",
+   Callback = function()
+   local Params = {
+   RepoURL = "https://raw.githubusercontent.com/luau/SynSaveInstance/main/",
+   SSI = "saveinstance",
+  }
+  local synsaveinstance = loadstring(game:HttpGet(Params.RepoURL .. Params.SSI .. ".luau", true), Params.SSI)()
+  local Options = {} -- Documentation here https://luau.github.io/UniversalSynSaveInstance/api/SynSaveInstance
+  synsaveinstance(Options)
    end,
 })
 
